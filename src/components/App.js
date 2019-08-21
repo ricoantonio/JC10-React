@@ -8,7 +8,7 @@ import ImageList from "./ImageList"
 class App extends Component{
 
     state={
-        iamges: []
+        images: []
     }
 
     // function yang akan mengambil keyword dari searchbar untuk merequest gambar
@@ -26,7 +26,8 @@ class App extends Component{
             }
         ).then((res)=>{
             // jika berhasil
-            console.log(res.data.results);
+            //update state untuk property images, di isi dengan hsil search gamber 
+            this.setState({images:res.data.results})
             
         }).catch((err)=>{
             // jika gagal
@@ -39,7 +40,7 @@ class App extends Component{
         return (
         <div className="container">
             <SearchBar asd = {this.onSearchSubmit} />
-            <ImageList/>
+            <ImageList data = {this.state.images} />
         </div>
         )
     }
