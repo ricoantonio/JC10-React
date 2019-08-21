@@ -12,6 +12,8 @@ class SearchBar extends Component{
     onSubmitForm=(e)=>{
         e.preventDefault()
 
+        // this.props. untuk mengabil suatu hal dari file lain yang terkait
+        this.props.asd()
 
         axios.get(
             "https://api.unsplash.com/search/photos",

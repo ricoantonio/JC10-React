@@ -4,10 +4,19 @@ import SearchBar from "./SearchBar"
 import ImageList from "./ImageList"
 
 class App extends Component{
+
+    state={
+        iamges: []
+    }
+
+    fnFromApp=()=>{
+        alert("ini dibuat di App.js")
+    }
+
     render(){
         return (
         <div className="container">
-            <SearchBar/>
+            <SearchBar asd = {this.fnFromApp} />
             <ImageList/>
         </div>
         )
