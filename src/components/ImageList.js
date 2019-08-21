@@ -11,8 +11,17 @@ class ImageList extends Component{
         // this.props.data = [{},{},{}]
         // item ={}
         // hasil = [<img/>, <img/>, ...]
-        let hasil=this.props.data.map((item)=>{
-            return <img src={item.urls.regular} alt=""/>
+        let hasil=this.props.data.map((item, index)=>{
+            return (
+                <img
+                    style={{width:"900px"}}
+                    className="m-3" 
+                    src={item.urls.regular} 
+                    alt=""
+                    key={index}
+                />
+            )
+            
         })
         return hasil
     }
@@ -21,7 +30,9 @@ class ImageList extends Component{
         return (
             <div>
                 <h1>Search Results</h1>
-                {this.renderList()}
+                <div className="text-center">
+                    {this.renderList()}
+                </div>
             </div>
         )
     }
