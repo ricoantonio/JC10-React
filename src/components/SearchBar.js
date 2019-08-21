@@ -9,33 +9,16 @@ class SearchBar extends Component{
         keyword:""
     }
 
+    // run ketika tekan enter
     onSubmitForm=(e)=>{
         e.preventDefault()
 
         // this.props. untuk mengabil suatu hal dari file lain yang terkait
-        this.props.asd()
+        this.props.asd(this.state.keyword)
 
-        axios.get(
-            "https://api.unsplash.com/search/photos",
-            {
-                headers:{
-                Authorization: `Client-ID 1397d76dfac35cff5e48fafcb967040783dd3f8fecf3f7d5c9257d891f41636b`
-                },
-                params: {
-                    query : this.state.keyword
-                }
-            }
-        ).then((res)=>{
-            // jika berhasil
-            console.log(res.data.results);
-            
-        }).catch((err)=>{
-            // jika gagal
-            console.log(err.massage);
-            
-        })
     }
 
+    // run ketika ada perubahan dara di textbox
     onChangeText=(e)=>{
         // Menyimpan text dari user di state.keyword
         this.setState({keyword: e.target.value}) 

@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import axios from "axios"
+
 
 import SearchBar from "./SearchBar"
 import ImageList from "./ImageList"
@@ -9,14 +11,34 @@ class App extends Component{
         iamges: []
     }
 
-    fnFromApp=()=>{
-        alert("ini dibuat di App.js")
+    // function yang akan mengambil keyword dari searchbar untuk merequest gambar
+    onSearchSubmit=(keyword)=>{
+        // request gambar
+        axios.get(
+            "https://api.unsplash.com/search/photos",
+            {
+                headers:{
+                Authorization: `Client-ID 1397d76dfac35cff5e48fafcb967040783dd3f8fecf3f7d5c9257d891f41636b`
+                },
+                params: {
+                    query : keyword
+                }
+            }
+        ).then((res)=>{
+            // jika berhasil
+            console.log(res.data.results);
+            
+        }).catch((err)=>{
+            // jika gagal
+            console.log(err.massage);
+            
+        })
     }
 
     render(){
         return (
         <div className="container">
-            <SearchBar asd = {this.fnFromApp} />
+            <SearchBar asd = {this.onSearchSubmit} />
             <ImageList/>
         </div>
         )
