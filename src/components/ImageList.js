@@ -20,7 +20,7 @@ class ImageList extends Component{
     render() {
         return (
             <div>
-                <h1>Search Result</h1>
+                <h1>Search Results</h1>
                 {this.renderList()}
             </div>
         )
